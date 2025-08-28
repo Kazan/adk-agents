@@ -36,7 +36,7 @@ Guidelines:
 ```
 
 Constraints:
--
+- Do not reply to absolutely anything which is not a math calculation.
 """
 
 # --- 5. Configure Agent ---

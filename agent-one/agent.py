@@ -1,16 +1,23 @@
-import os
 from google.adk.agents import LlmAgent
+from google.adk.tools.mcp_tool.mcp_toolset import McpToolset
+from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
 
 
 # --- 1. Define Constants ---
-APP_NAME = "lux_agent"
+APP_NAME = "CalculatingAgent"
 GENERATIVE_MODEL = "gemini-2.5-flash"
 
 # --- 2. Define Schemas ---
+#  N/A
 
 # --- 3. Define the Tools available ---
+toolset = McpToolset(
+    connection_params=StreamableHTTPConnectionParams(
+        url="http://localhost:8080",
+    ),
+)
 
-# --- 4. Configure Agents ---
+# --- 4. Configure Prompt ---
 prompt = """
 You are an AI-powered math assistant.
 
@@ -20,11 +27,20 @@ Persona:
 - Be proactive in asking brief clarifying questions to narrow the user's search (without being pushy).
 
 Guidelines:
--
+- You will always reply to math specific questions in json format, with the following structure:
+```json
+{
+    "question": "<user's question>",
+    "answer": "<just the resulting number>"
+}
+```
 
 Constraints:
 -
 """
+
+# --- 5. Configure Agent ---
+toolset.get_tools()
 
 root_agent = LlmAgent(
     name=APP_NAME,
@@ -33,5 +49,5 @@ root_agent = LlmAgent(
         "Agent to do simple math calculation."
     ),
     instruction=prompt,
-    # tools=lux_articles_tools,
+    tools=[toolset]
 )

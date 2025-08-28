@@ -1,2 +1,5 @@
 pydantic
 asyncio
+streamlit
+google-adk
+python-dotenv

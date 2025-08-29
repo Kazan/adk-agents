@@ -2,7 +2,6 @@ from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
 
-
 # --- 1. Define Constants ---
 APP_NAME = "CalculatingAgent"
 GENERATIVE_MODEL = "gemini-2.5-flash"
@@ -40,8 +39,6 @@ Constraints:
 """
 
 # --- 5. Configure Agent ---
-toolset.get_tools()
-
 root_agent = LlmAgent(
     name=APP_NAME,
     model=GENERATIVE_MODEL,

@@ -3,3 +3,5 @@ asyncio
 streamlit
 google-adk
 python-dotenv
+a2a
+a2a-sdk

@@ -1,0 +1,17 @@
+{
+  "capabilities": {},
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["application/json"],
+  "description": "An agent specialized in checking whether numbers are even or odd.",
+  "name": "even_odd",
+  "skills": [
+    {
+      "id": "check_even_or_odd",
+      "name": "Even/Odd Checking",
+      "description": "Check if numbers in a list are even or odd by lazily asking the LLM for it",
+      "tags": ["even", "odd", "numbers"]
+    }
+  ],
+  "url": "http://localhost:8001/a2a/even_odd",
+  "version": "1.0.0"
+}

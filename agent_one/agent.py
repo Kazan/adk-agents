@@ -50,7 +50,7 @@ evenodd_agent = RemoteA2aAgent(
     ),
 )
 
-root_agent = Agent(
+calc_agent = Agent(
     name=APP_NAME,
     model=GENERATIVE_MODEL,
     description=(
@@ -60,3 +60,5 @@ root_agent = Agent(
     instruction=prompt,
     tools=[toolset]
 )
+
+root_agent = calc_agent

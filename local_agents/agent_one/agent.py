@@ -58,7 +58,8 @@ calc_agent = Agent(
     ),
     sub_agents=[evenodd_agent],
     instruction=prompt,
-    tools=[toolset]
+    tools=[toolset],
+    before_model_callback=None
 )
 
 root_agent = calc_agent
